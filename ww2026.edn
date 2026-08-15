@@ -1,0 +1,347 @@
+[
+ {:region :asia
+  :organizer "BOLO ESPORTS"
+  :countries "China"
+  :youtube ["https://www.youtube.com/@fightclubchina"]
+  :twitch []
+  :events [
+   {:round :r1 :date "6/13-14" :entry "https://www.start.gg/tournament/fightclub-championship-world-warrior-2026-asia-1/details"}
+   {:round :r2 :date "6/20-21" :entry "https://www.start.gg/tournament/fightclub-championship-world-warrior-2026-asia-2/details"}
+   {:round :r3 :date "7/18-19" :entry "https://www.start.gg/tournament/fightclub-championship-world-warrior-2026-asia-3/details"}
+   {:round :r4 :date "8/22-23" :entry "https://www.start.gg/tournament/fightclub-championship-world-warrior-2026-asia-4/details"}
+   {:round :r5 :date "9/19-20" :entry "https://www.start.gg/tournament/fightclub-championship-world-warrior-2026-asia-5/details"}
+  ]}
+ {:region :asia-east
+  :organizer "Firemanruby"
+  :countries "Chinese Taipei, Hong Kong, Macao"
+  :youtube ["https://www.youtube.com/@Firemanruby"]
+  :twitch ["https://www.twitch.tv/firemanruby2"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-1/details"}
+   {:round :r2 :date "6/13" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/tournament/aubycup-world-warrior-2026-asia-east-regional-final/details"}
+  ]}
+ {:region :south-korea
+  :organizer nil
+  :countries "South Korea"
+  :youtube ["https://www.youtube.com/c/spiritzero"]
+  :twitch []
+  :events [
+   {:round :r1 :date "5/15" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-1/details"}
+   {:round :r2 :date "6/19" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-2/details"}
+   {:round :r3 :date "7/17" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-3/details"}
+   {:round :r4 :date "8/28" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-4/details"}
+   {:round :r5 :date "9/18" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/tournament/spiritzero-world-warrior-2026-south-korea-final/details"}
+  ]}
+ {:region :japan
+  :organizer nil
+  :countries "Japan"
+  :youtube ["https://www.youtube.com/@CapcomFightersJP"]
+  :twitch ["https://www.twitch.tv/capcomfighters_jp"]
+  :events [
+   {:round :r1 :date "5/10" :entry "https://www.start.gg/tournament/world-warrior-2026-japan-1/details"}
+   {:round :r2 :date "7/5" :entry "https://www.start.gg/tournament/world-warrior-2026-japan-2/details"}
+   {:round :r3 :date "8/30" :entry "https://www.start.gg/tournament/world-warrior-2026-japan-3/details"}
+   {:round :r4 :date "10/18" :entry "https://www.start.gg/tournament/world-warrior-2026-japan-4/details"}
+   {:round :r5 :date "11/29" :entry "https://www.start.gg/tournament/world-warrior-2026-japan-5/details"}
+  ]}
+ {:region :asia-south-east
+  :organizer "Eliphant"
+  :countries "Brunei/Darussalam, Cambodia, Indonesia, Lao People’s Democratic Republic, Malaysia, Philippines, Singapore, Thailand, Vietnam"
+  :youtube ["https://www.youtube.com/@Versusvortex"]
+  :twitch []
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/versus-masters-world-warrior-2026-asia-southeast-1/details"}
+   {:round :r2 :date "6/13" :entry "https://www.start.gg/tournament/versus-masters-world-warrior-2026-asia-southeast-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/versus-masters-world-warrior-2026-asia-southeast-3-1/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/versus-masters-world-warrior-2026-asia-southeast-4/details"}
+   {:round :r5 :date "9/5" :entry "https://www.start.gg/tournament/versus-masters-world-warrior-2026-asia-southeast-5/details"}
+  ]}
+ {:region :asia-south
+  :organizer "Yoddhaa Gaming"
+  :countries "Bangladesh, Democratic Socialist Republic of Sri Lanka, Kingdom of Bhutan, Nepal, Republic of India"
+  :youtube ["https://www.youtube.com/@YoddhaaGaming"]
+  :twitch ["https://www.twitch.tv/yoddhaagaming"]
+  :events [
+   {:round :r1 :date "5/16-17" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-1/details"}
+   {:round :r2 :date "6/13-14" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-2/details"}
+   {:round :r3 :date "7/18-19" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-3/details"}
+   {:round :r4 :date "8/22-23" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-4/details"}
+   {:round :r5 :date "9/19-20" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-5/details"}
+   {:round :finals :date "10/3" :entry "https://www.start.gg/tournament/fighters-dojo-world-warrior-2026-asia-south-regional-final/details"}
+  ]}
+ {:region :oceania
+  :organizer "UNGA"
+  :countries "Australia, New Caledonia, New Zealand"
+  :youtube ["https://youtube.com/ungadownunder"]
+  :twitch ["https://twitch.tv/ungadownunder"]
+  :events [
+   {:round :r1 :date "5/10" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-1/details"}
+   {:round :r2 :date "6/21" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-2/details"}
+   {:round :r3 :date "7/19" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-3/details"}
+   {:round :r4 :date "8/30" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-4/details"}
+   {:round :r5 :date "9/20" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-5/details"}
+   {:round :finals :date "10/18" :entry "https://www.start.gg/tournament/unga-world-warrior-2026-oceania-final/details"}
+  ]}
+ {:region :brazil
+  :organizer "Ryoran"
+  :countries "Brazil"
+  :youtube ["https://www.youtube.com/ryoranfgc"]
+  :twitch []
+  :events [
+   {:round :r1 :date "5/13-14" :entry "https://www.start.gg/tournament/br-kumite-world-warrior-2026-brazil-1/details"}
+   {:round :r2 :date "6/17-18" :entry "https://www.start.gg/tournament/br-kumite-world-warrior-2026-brazil-2/details"}
+   {:round :r3 :date "7/15-16" :entry "https://www.start.gg/tournament/br-kumite-world-warrior-2026-brazil-3/details"}
+   {:round :r4 :date "8/26-27" :entry "https://www.start.gg/tournament/br-kumite-world-warrior-2026-brazil-4/details"}
+   {:round :r5 :date "9/23-24" :entry "https://www.start.gg/tournament/br-kumite-world-warrior-2026-brazil-5/details"}
+  ]}
+ {:region :central-america-east
+  :organizer "Blink"
+  :countries "Anguilla, Antigua & 
+Barbuda, Aruba, Barbados, Bonaire Saint Eustatius & Saba, Cayman 
+Islands, Curacao, Dominican Republic, Dominicana, Grenada, Guadeloupe, 
+Haiti, Jamaica, Martinique, Montserrat, Puerto Rico, Saint Barthélemy, 
+Saint Kitts & Nevis, Saint Lucia, Saint Maarten (Dutch part), Saint 
+Martin (French part), Saint Vincent & the Grenadines, The Bahamas, 
+Trinidad & Tobago, Turks & Caicos Islands, Virgin Islands 
+British, Virgin Islands U.S."
+  :youtube ["https://www.youtube.com/c/blinkesportsleague"]
+  :twitch ["https://www.twitch.tv/blinkesportsrd"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-central-america-east-1/details"}
+   {:round :r2 :date "6/20" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-central-america-east-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-central-america-east-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-central-america-east-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-central-america-east-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/tournament/blink-battleground-world-warrior-2026-ca-east-regional-final/details"}
+  ]}
+ {:region :central-america-west
+  :organizer "Greenkraken"
+  :countries "Belize, Costa Rica, El Salvador, Guatemala, Honduras, Nicaragua, Republic of Panama"
+  :youtube ["https://www.youtube.com/@panamafighters"]
+  :twitch ["https://www.twitch.tv/panamafighters"]
+  :events [
+   {:round :r1 :date "5/9" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-1/details"}
+   {:round :r2 :date "6/20" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-4/details"}
+   {:round :r5 :date "9/26" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-5/details"}
+   {:round :finals :date "10/31" :entry "https://www.start.gg/tournament/latam-fist-world-warrior-2026-central-america-west-final/details"}
+  ]}
+ {:region :mexico
+  :organizer "Markyo"
+  :countries "Mexico"
+  :youtube ["https://www.youtube.com/@mexicanmashseries"]
+  :twitch ["https://www.twitch.tv/mmseries"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-1/details"}
+   {:round :r2 :date "6/13" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-2/details"}
+   {:round :r3 :date "7/4" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/tournament/mexican-mash-series-world-warrior-2026-mexico-regional-final/details"}
+  ]}
+ {:region :south-america-east
+  :organizer "UAFG"
+  :countries "Argentina, Bolivia, Paraguay, Uruguay"
+  :youtube ["https://www.youtube.com/@UnionArgentinaFG"]
+  :twitch ["https://www.twitch.tv/UAFG"]
+  :events [
+   {:round :r1 :date "5/10" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-1/details"}
+   {:round :r2 :date "6/14" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-2/details"}
+   {:round :r3 :date "7/5" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-3/details"}
+   {:round :r4 :date "8/9" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-4/details"}
+   {:round :r5 :date "9/20" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-5/details"}
+   {:round :finals :date "TBD" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-south-america-east-final/details"}
+  ]}
+ {:region :south-america-west
+  :organizer "F2G Esports"
+  :countries "Colombia, Ecuador, French Guiana, Guyana, Peru, Suriname, Venezuela"
+  :youtube ["https://www.youtube.com/user/f2gcl"]
+  :twitch ["https://www.twitch.tv/f2gcl"]
+  :events [
+   {:round :r1 :date "5/16-17" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-1/details"}
+   {:round :r2 :date "6/20-21" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-2/details"}
+   {:round :r3 :date "7/18-19" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-3/details"}
+   {:round :r4 :date "8/8-9" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-4/details"}
+   {:round :r5 :date "9/5-6" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-5/details"}
+   {:round :finals :date "10/18" :entry "https://www.start.gg/tournament/champion-s-road-world-warrior-2026-south-america-west-final/details"}
+  ]}
+ {:region :chile
+  :organizer "UAFG"
+  :countries "CHILE"
+  :youtube []
+  :twitch ["https://www.twitch.tv/UAFG"]
+  :events [
+   {:round :r1 :date "5/17" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-chile-1/details"}
+   {:round :r2 :date "6/21" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-chile-2/details"}
+   {:round :r3 :date "7/19" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-chile-3/details"}
+   {:round :r4 :date "8/23" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-chile-4/details"}
+   {:round :r5 :date "9/27" :entry "https://www.start.gg/tournament/de-la-calle-world-warrior-2026-chile-5/details"}
+  ]}
+ {:region :uk-ireland
+  :organizer "saltmineleague"
+  :countries "Ireland, United Kingdom"
+  :youtube ["https://www.youtube.com/@SaltmineLeague"]
+  :twitch ["https://www.twitch.tv/saltmineleague"]
+  :events [
+   {:round :r1 :date "5/10" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-1/details"}
+   {:round :r2 :date "6/14" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-2/details"}
+   {:round :r3 :date "7/5" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-3/details"}
+   {:round :r4 :date "8/9" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-4/details"}
+   {:round :r5 :date "9/27" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-5/details"}
+   {:round :finals :date "10/18" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-uk-ireland-finals/details"}
+  ]}
+ {:region :france
+  :organizer "GL_Abou"
+  :countries "France,Monaco"
+  :youtube ["https://www.youtube.com/@Reversalgg"]
+  :twitch ["https://www.twitch.tv/reversalgg"]
+  :events [
+   {:round :r1 :date "6/20" :entry "https://www.start.gg/tournament/set-reset-world-warrior-2026-france-monaco-1/details"}
+   {:round :r2 :date "6/21" :entry "https://www.start.gg/tournament/set-reset-world-warrior-2026-france-monaco-2/details"}
+   {:round :r3 :date "7/19" :entry "https://www.start.gg/tournament/set-reset-world-warrior-2026-france-monaco-3/details"}
+   {:round :r4 :date "9/20" :entry "https://www.start.gg/tournament/set-reset-world-warrior-2026-france-monaco-4/details"}
+   {:round :r5 :date "10/18" :entry "https://www.start.gg/tournament/set-reset-world-warrior-2026-france-monaco-5/details"}
+  ]}
+ {:region :spain-portugal
+  :organizer nil
+  :countries "Andorra, Portugal, Spain"
+  :youtube ["https://www.youtube.com/c/MadridFGC"]
+  :twitch ["https://www.twitch.tv/madridfgc"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/impact-series-world-warrior-2026-spain-portugal-1/details"}
+   {:round :r2 :date "6/13" :entry "https://www.start.gg/tournament/impact-series-world-warrior-2026-spain-portugal-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/impact-series-world-warrior-2026-spain-portugal-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/impact-series-world-warrior-2026-spain-portugal-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/impact-series-world-warrior-2026-spain-portugal-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/ww2026-sp-pt_finales"}
+  ]}
+ {:region :europe-west
+  :organizer "saltmineleague"
+  :countries "Austria, Belgium, Italy, Liechtenstein, Luxembourg, Malta, Netherlands, San Marino, Slovenia, Switzerland"
+  :youtube ["https://www.youtube.com/@SaltmineLeague"]
+  :twitch ["https://www.twitch.tv/saltmineleague"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-1/details"}
+   {:round :r2 :date "6/20" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-5/details"}
+   {:round :finals :date "10/31" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-west-finals/details"}
+  ]}
+ {:region :germany
+  :organizer "saltmineleague"
+  :countries "Germany"
+  :youtube ["https://www.youtube.com/@SaltmineLeague"]
+  :twitch ["https://www.twitch.tv/saltmineleague"]
+  :events [
+   {:round :r1 :date "5/17" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-1/details"}
+   {:round :r2 :date "6/21" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-2/details"}
+   {:round :r3 :date "7/19" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-3/details"}
+   {:round :r4 :date "8/23" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-4/details"}
+   {:round :r5 :date "9/20" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-5/details"}
+   {:round :finals :date "11/1" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-germany-finals/details"}
+  ]}
+ {:region :europe-north-east
+  :organizer "saltmineleague"
+  :countries "Albania, 
+Bosnia&Herzegovina, Bulgaria, Croatia, Czech Republic, Denmark, 
+Estonia, Finland, Georgia, Greece, Hungary, Iceland, Kosovo, Latvia, 
+Lithuania, Montenegro, Norway, Poland, Republic of Moldova, Republic of 
+North Macedonia, Romania, Serbia, Slovakia, Sweden, Ukraine"
+  :youtube ["https://www.youtube.com/@SaltmineLeague"]
+  :twitch ["https://www.twitch.tv/saltmineleague"]
+  :events [
+   {:round :r1 :date "5/9" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-1/details"}
+   {:round :r2 :date "6/13" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-2/details"}
+   {:round :r3 :date "7/4" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-3/details"}
+   {:round :r4 :date "8/8" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-4/details"}
+   {:round :r5 :date "9/26" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-5/details"}
+   {:round :finals :date "10/17" :entry "https://www.start.gg/tournament/saltmine-league-world-warrior-2026-europe-north-east-finals/details"}
+  ]}
+ {:region :middle-east
+  :organizer nil
+  :countries "Armenia, Azerbaijan, Bahrain,
+ Cyprus, Egypt, Iraq, Islamic Republic of Pakistan, Israel, Jordan, 
+Kuwait, Lebanon, Oman, Palestine, Qatar, Saudi Arabia, Turkey, United 
+Arab Emirates, Yemen"
+  :youtube []
+  :twitch []
+  :events [
+   {:round :r1 :date "6/13" :entry "https://www.start.gg/tournament/world-warrior-2026-middle-east-1/details"}
+   {:round :r2 :date "6/20" :entry "https://www.start.gg/tournament/world-warrior-2026-middle-east-2/details"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/tournament/world-warrior-2026-middle-east-3/details"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/tournament/world-warrior-2026-middle-east-4/details"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/tournament/world-warrior-2026-middle-east-5/details"}
+  ]}
+ {:region :south-africa
+  :organizer "sigma_g19"
+  :countries "Angola, Botswana, Kenya, 
+Madagascar, Mauritius, Mozambique, Namibia, Republic of South Africa, 
+Réunion, Tanzania, Zambia, Zimbabwe"
+  :youtube ["https://www.youtube.com/randomselectevents"]
+  :twitch ["https://www.twitch.tv/randomselectevents"]
+  :events [
+   {:round :r1 :date "5/16" :entry "https://www.start.gg/tournament/get-washed-world-warrior-2026-south-africa-1/details"}
+   {:round :r2 :date "6/20" :entry "https://www.start.gg/gw2026_2"}
+   {:round :r3 :date "7/18" :entry "https://www.start.gg/gw2026_3"}
+   {:round :r4 :date "8/22" :entry "https://www.start.gg/gw2026_4"}
+   {:round :r5 :date "9/19" :entry "https://www.start.gg/gw2026_5"}
+   {:round :finals :date "10/31" :entry "https://www.start.gg/gw2026_final"}
+  ]}
+ {:region :us-east
+  :organizer "CapcomFighters"
+  :countries "Connecticut, Delaware, 
+Florida, Georgia, Maine, Maryland, Massachusetts, New Brunswick, 
+Newfoundland & Labrador, New Hampshire, New Jersey, New York, North 
+Carolina, Nova Scotia, Nunavut, Ontario, Pennsylvania, Prince Edward 
+Island, Quebec, Rhode Island, South Carolina, Vermont, Virginia, West 
+Virginia"
+  :youtube ["https://www.youtube.com/CapcomFighters"]
+  :twitch ["https://www.twitch.tv/capcomfighters"]
+  :events [
+   {:round :r1 :date "6/13" :entry "https://start.gg/ww26-uscae1"}
+   {:round :r2 :date "6/21" :entry "https://start.gg/ww26-uscae2"}
+   {:round :r3 :date "7/18" :entry "https://start.gg/ww26-uscae3"}
+   {:round :r4 :date "8/30" :entry "https://start.gg/ww26-uscae4"}
+   {:round :r5 :date "10/18" :entry "https://start.gg/ww26-uscae5"}
+   {:round :finals :date "12/13" :entry "https://start.gg/ww26-uscae-final"}
+  ]}
+ {:region :us-midwest
+  :organizer "CapcomFighters"
+  :countries "Alabama, Arkansas, Illinois, 
+Indiana, Iowa, Kansas, Kentucky, Louisiana, Michigan, Minnesota, 
+Mississippi, Missouri, Nebraska, North Dakota, Ohio, Oklahoma, South 
+Dakota, Tennessee, Texas, Wisconsin"
+  :youtube ["https://www.youtube.com/CapcomFighters"]
+  :twitch ["https://www.twitch.tv/capcomfighters"]
+  :events [
+   {:round :r1 :date "5/9" :entry "https://start.gg/ww26-usmw1"}
+   {:round :r2 :date "6/14" :entry "https://start.gg/ww26-usmw2"}
+   {:round :r3 :date "7/5" :entry "https://start.gg/ww26-usmw3"}
+   {:round :r4 :date "8/9" :entry "https://start.gg/ww26-usmw4"}
+   {:round :r5 :date "9/20" :entry "https://start.gg/ww26-usmw5"}
+   {:round :finals :date "11/8" :entry "https://start.gg/ww26-usmw-final"}
+  ]}
+ {:region :us-west
+  :organizer "CapcomFighters"
+  :countries "Alaska, Alberta, Arizona, 
+British Columbia, California, Colorado, Hawaii, Idaho, Montana, 
+Manitoba, Nevada, New Mexico, Northwest Territories, Nunavut, Oregon, 
+Saskatchewan, Utah, Washington, Wyoming, Yukon"
+  :youtube ["https://www.youtube.com/CapcomFighters"]
+  :twitch ["https://www.twitch.tv/capcomfighters"]
+  :events [
+   {:round :r1 :date "5/10" :entry "https://start.gg/ww26-uscaw1"}
+   {:round :r2 :date "6/20" :entry "https://start.gg/ww26-uscaw2"}
+   {:round :r3 :date "7/19" :entry "https://start.gg/ww26-uscaw3"}
+   {:round :r4 :date "8/23" :entry "https://start.gg/ww26-uscaw4"}
+   {:round :r5 :date "9/27" :entry "https://start.gg/ww26-uscaw5"}
+   {:round :finals :date "11/15" :entry "https://start.gg/ww26-uscaw-final"}
+  ]}
+]
