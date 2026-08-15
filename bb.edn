@@ -1,0 +1,4 @@
+;; No :deps on purpose. Everything used here ships inside babashka
+;; (http-client, data.xml, cheshire, fs), which keeps the image small and the
+;; build hermetic — no maven fetch, no JVM needed to resolve a dependency tree.
+{:paths ["src"]}

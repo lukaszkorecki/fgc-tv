@@ -1,0 +1,9 @@
+# Generated each run.
+public/
+
+# NOT ignored: state/videos.jsonl. Committing it back is one of the valid ways
+# to persist history between container runs — if you persist it some other way
+# (volume, object storage), ignore it locally instead.
+
+.cpcache/
+.DS_Store

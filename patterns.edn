@@ -1,0 +1,78 @@
+;; Classification rules for feed titles. Hand-edit freely — nothing here is
+;; compiled into the code, and reclassification is a pure function over stored
+;; state, so improving a pattern fixes history on the next render without
+;; refetching anything.
+;;
+;; Check public/_debug.html after a render to see what got rejected.
+
+{;; Ordered. First rule whose :any list matches the title wins.
+ :classes
+ [{:class :world-warrior
+   :any ["(?i)world\\s*warrior"
+         "(?i)\\bWW\\s?(20)?\\d{2}\\b"
+         "(?i)\\bCPT\\W{0,2}WW\\b"
+         "ワールドウォリアー"]}
+
+  {:class :sfl
+   :any ["(?i)street\\s*fighter\\s*league"
+         "(?i)\\bSFL\\b"
+         "(?i)\\bPro-?(JP|US|EU)\\b"
+         "(?i)\\bDIVISION\\s+(S|F|SHOW\\s*DOWN)\\b"
+         "ストリートファイターリーグ"
+         "SFリーグ"]}
+
+  ;; Not in the original brief. These are the CPT Premier stops and majors that
+  ;; the same channels broadcast — the biggest tournament VODs they publish.
+  ;; Delete this whole rule to get back to a strict World Warrior + SFL site.
+  {:class :premier
+   ;; The World Warrior and SFL rules are evaluated first and win, so by the
+   ;; time a title reaches here a bare "Capcom Pro Tour 2026" mention is a
+   ;; Premier stop. Needed because Capcom Fighters' own titles read
+   ;; "POOLS - DAY 1 - CEO - Orlando, FL - Capcom Pro Tour 2026" — no literal
+   ;; "Premier", and the event name is nowhere near the year.
+   :any ["(?i)Capcom\\s*Pro\\s*Tour\\s*20\\d\\d"
+         "(?i)Capcom\\s*Pro\\s*Tour.{0,15}Premier"
+         "(?i)Capcom\\s*Cup"
+         "(?i)Esports\\s*World\\s*Cup"
+         "(?i)\\bEVO\\s*20\\d\\d\\b"
+         "(?i)Combo\\s*Breaker"
+         "(?i)\\bCEO\\s*20\\d\\d\\b"
+         "(?i)\\bBAM\\s*\\d{1,2}\\b"]}]
+
+ ;; Forced to :other regardless of the rules above. Shorts and clip reels carry
+ ;; event hashtags but are not broadcasts, and they are the main thing crowding
+ ;; the 15-item feed window on Capcom Fighters.
+ :exclude ["(?i)#shorts"
+           "(?i)チョイ見せ"
+           "(?i)\\bpay-per-view preview\\b"]
+
+ ;; Used to split a channel that serves several regions (Saltmine covers four,
+ ;; Capcom Fighters three). Only consulted for regions the channel actually
+ ;; broadcasts, so a stray "Germany" in an unrelated title cannot misfile a video.
+ :region-hints
+ {:us-east            ["(?i)US\\s*/?\\s*(and\\s+)?(Canada\\s+)?East" "(?i)\\bUSCAE\\b"]
+  :us-midwest         ["(?i)US\\s*Midwest" "(?i)\\bUSMW\\b"]
+  :us-west            ["(?i)US\\s*/?\\s*(and\\s+)?(Canada\\s+)?West" "(?i)\\bUSCAW\\b"]
+  :uk-ireland         ["(?i)UK\\s*(&|and|\\+)\\s*Ireland" "(?i)\\bUK\\b" "(?i)Ireland"]
+  :germany            ["(?i)\\bGermany\\b" "(?i)\\bDeutschland\\b"]
+  :europe-west        ["(?i)Europe\\s*West" "(?i)\\bEU\\s*West\\b"]
+  ;; Saltmine writes this as "Europe North/East", so the separator is loose.
+  :europe-north-east  ["(?i)Europe\\s*North[\\s/&_-]*East" "(?i)\\bEU\\s*N\\.?E\\.?\\b"]
+  :france             ["(?i)\\bFrance\\b" "(?i)\\bMonaco\\b"]
+  :spain-portugal     ["(?i)\\bSpain\\b" "(?i)\\bPortugal\\b" "(?i)España"]
+  :japan              ["(?i)\\bJapan\\b" "日本"]
+  :south-korea        ["(?i)South\\s*Korea" "한국"]
+  :asia               ["(?i)Asia\\s*\\(?China" "(?i)\\bChina\\b" "中国"]
+  :asia-east          ["(?i)Asia\\s*East" "(?i)Chinese\\s*Taipei" "(?i)Hong\\s*Kong"]
+  :asia-south         ["(?i)Asia\\s*South(?!\\s*East)" "(?i)\\bIndia\\b"]
+  :asia-south-east    ["(?i)Asia\\s*South\\s*East" "(?i)\\bSEA\\b"]
+  :oceania            ["(?i)\\bOceania\\b" "(?i)Down\\s*Under"]
+  :brazil             ["(?i)\\bBrazil\\b" "(?i)\\bBrasil\\b"]
+  :mexico             ["(?i)\\bMexico\\b" "(?i)México"]
+  :central-america-east ["(?i)Central\\s*America\\s*East"]
+  :central-america-west ["(?i)Central\\s*America\\s*West" "(?i)LATAM\\s*Fist"]
+  :south-america-east ["(?i)South\\s*America\\s*East"]
+  :south-america-west ["(?i)South\\s*America\\s*West"]
+  :chile              ["(?i)\\bChile\\b"]
+  :south-africa       ["(?i)South\\s*Africa"]
+  :middle-east        ["(?i)Middle\\s*East"]}}
