@@ -19,12 +19,20 @@ on:
 
 # One run at a time: the build job pushes a commit, and overlapping runs would
 # race on it. Never cancel in progress — a cancelled run loses a poll.
+# Deny by default. Each job below opts in to exactly the scopes it needs, so a
+# job added later cannot silently inherit write access to the repo.
+permissions: {}
+
 concurrency:
   group: fgc-tv-publish
   cancel-in-progress: false
 
 env:
   BB_VERSION: "1.12.218"
+  # sha256 of babashka-<version>-linux-amd64.tar.gz, matching the .sha256 the
+  # babashka release publishes. A release asset can be replaced after the fact;
+  # this is what makes the download tamper-evident rather than merely pinned.
+  BB_SHA256: "6edf99d23c4245774c2c62b25af826d60ed661028906f918f15eceb0deffcfdc"
 
 jobs:
   build:
@@ -33,18 +41,23 @@ jobs:
       contents: write   # to commit the refreshed state file back
       pages: write      # configure-pages, to read back the Pages base URL
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.3.0
+        with:
+          # Keep the push credential out of .git/config. Everything between here
+          # and the commit step runs with network input from YouTube; there is
+          # no reason for a repo-write token to be sitting on disk while it does.
+          persist-credentials: false
 
       - name: Install babashka ${{ env.BB_VERSION }}
         run: |
           curl -sSfL "https://raw.githubusercontent.com/babashka/babashka/v${BB_VERSION}/install" -o /tmp/install-bb
           chmod +x /tmp/install-bb
-          sudo /tmp/install-bb --version "${BB_VERSION}"
+          sudo /tmp/install-bb --version "${BB_VERSION}" --checksum "${BB_SHA256}"
           bb --version
 
       # Gives us the real Pages URL (including the /repo-name prefix on a
       # project site), which the feed and the OpenGraph tags need absolute.
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
         id: pages
         with:
           # Turns Pages on via the API if it is not already, so a fresh clone of
@@ -59,6 +72,8 @@ jobs:
         run: bb run.clj
 
       - name: Commit refreshed state
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           if git diff --quiet -- state/videos.jsonl; then
             echo "state unchanged, nothing to commit"
@@ -72,9 +87,10 @@ jobs:
           git pull --rebase --autostash
           # Pushes made with GITHUB_TOKEN do not trigger workflows, so the
           # `push` trigger above cannot loop back on this commit.
-          git push
+          # Token scoped to this one step, and masked in logs by the runner.
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: ./public
 
@@ -88,5 +104,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
         id: deployment

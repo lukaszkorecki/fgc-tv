@@ -16,15 +16,17 @@
 
 (defn- parse-entry [entry]
   (let [group (child entry "group")
-        stats (some-> group (child "community") (child "statistics"))
-        link (first (filter #(tag= "link" %) (els entry)))]
+        stats (some-> group (child "community") (child "statistics"))]
     {:video-id   (txt entry "videoId")
      :channel-id (txt entry "channelId")
      :title      (txt entry "title")
      :published  (txt entry "published")
      :updated    (txt entry "updated")
-     :url        (or (get-in link [:attrs :href])
-                     (str "https://www.youtube.com/watch?v=" (txt entry "videoId")))
+     ;; Built from the video id rather than taken from the feed's <link href>.
+     ;; Nothing on the page is scripted, but an href is the one attribute where
+     ;; escaping is not enough (a javascript: URL survives it), so the value is
+     ;; constructed instead of trusted.
+     :url        (str "https://www.youtube.com/watch?v=" (txt entry "videoId"))
      ;; A scheduled-but-not-yet-aired stream reports views="0" while a live one
      ;; reports a real count. It is the only upcoming/aired signal the feed
      ;; carries — there is no yt:liveBroadcastContent and no scheduled start time.

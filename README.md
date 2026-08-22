@@ -199,3 +199,27 @@ instants and are rendered in UTC, since the audience is global.
 | `_debug.html` | Everything the filter rejected (`noindex`) |
 | `robots.txt` | Allows all, disallows `_debug.html` |
 | `.nojekyll` | Stops Pages from swallowing `_debug.html` for its leading underscore |
+
+## Security posture
+
+The only credential in play is the ephemeral `GITHUB_TOKEN`; there are no repo
+secrets and no API keys, because nothing here authenticates to anything.
+
+- **No `pull_request` or `pull_request_target` trigger.** A fork cannot cause
+  this workflow to run at all, so there is no fork path to the token.
+- **`permissions: {}` at the top level**, with each job opting in. The repo
+  default is read-only as well.
+- **No `github.event.*` interpolation into any `run:` block** — the standard
+  script-injection vector is absent by construction.
+- **`persist-credentials: false`.** The push credential exists only inside the
+  commit step, not on disk while feed data is being fetched and parsed.
+- **`git add state/videos.jsonl`**, never `git add -A`. A compromised render
+  cannot commit anything else.
+- **Actions pinned by commit SHA**, and the babashka tarball verified against
+  the publisher's `.sha256`.
+- **Deployments restricted to `main`** by the `github-pages` environment.
+
+Feed input is treated as untrusted: everything is HTML-escaped, video URLs are
+constructed from the video id rather than taken from the feed, JSON/EDN parsing
+uses `cheshire` and `clojure.edn` (never `clojure.core/read-string`), and
+`clojure.data.xml` resolves no external entities — verified, not assumed.
