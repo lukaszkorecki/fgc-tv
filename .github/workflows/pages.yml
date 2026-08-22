@@ -1,0 +1,88 @@
+name: build and publish
+
+# Two things happen here, in order:
+#   1. poll the YouTube feeds, render the site, commit the updated state back
+#   2. publish ./public to GitHub Pages
+#
+# The state file is the whole persistence story. YouTube's feed only returns the
+# ~15 most recent videos per channel and rolls them off within days, so history
+# only exists because we keep committing state/videos.jsonl.
+
+on:
+  schedule:
+    # Every three hours. The feed window is days wide, so this has plenty of
+    # margin — the point is not to miss a roll-off, not to be fast.
+    - cron: "17 */3 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# One run at a time: the build job pushes a commit, and overlapping runs would
+# race on it. Never cancel in progress — a cancelled run loses a poll.
+concurrency:
+  group: fgc-tv-publish
+  cancel-in-progress: false
+
+env:
+  BB_VERSION: "1.12.218"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # to commit the refreshed state file back
+      pages: write      # configure-pages, to read back the Pages base URL
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install babashka ${{ env.BB_VERSION }}
+        run: |
+          curl -sSfL "https://raw.githubusercontent.com/babashka/babashka/v${BB_VERSION}/install" -o /tmp/install-bb
+          chmod +x /tmp/install-bb
+          sudo /tmp/install-bb --version "${BB_VERSION}"
+          bb --version
+
+      # Gives us the real Pages URL (including the /repo-name prefix on a
+      # project site), which the feed and the OpenGraph tags need absolute.
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - name: Poll feeds and render
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          STATE_PATH: ./state/videos.jsonl
+          OUTPUT_DIR: ./public
+        run: bb run.clj
+
+      - name: Commit refreshed state
+        run: |
+          if git diff --quiet -- state/videos.jsonl; then
+            echo "state unchanged, nothing to commit"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/videos.jsonl
+          git commit -m "state: $(date -u '+%Y-%m-%dT%H:%MZ')"
+          # A human push mid-run would otherwise reject this.
+          git pull --rebase --autostash
+          # Pushes made with GITHUB_TOKEN do not trigger workflows, so the
+          # `push` trigger above cannot loop back on this commit.
+          git push
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

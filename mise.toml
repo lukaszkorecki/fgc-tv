@@ -1,5 +1,5 @@
 [tools]
-babashka = "latest"
+babashka = "1.12.218"
 
 
 [tasks.poll]

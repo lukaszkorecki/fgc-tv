@@ -1,8 +1,8 @@
 # fgc-tv
 
 A static site aggregating every **Capcom Pro Tour 2026 World Warrior** and
-**Street Fighter League** broadcast across all 25 regions, built hourly from
-YouTube Atom feeds. Unofficial fan project, not affiliated with Capcom.
+**Street Fighter League** broadcast across all 25 regions, rebuilt every few
+hours from YouTube Atom feeds. Unofficial fan project, not affiliated with Capcom.
 
 The point is navigation: these broadcasts are scattered across 18 organizer
 channels in a dozen languages, and YouTube gives you no way to see them as one
@@ -16,7 +16,8 @@ channels.edn ├─→ poll.clj ──→ state/videos.jsonl ──→ render.cl
 patterns.edn ┘   (18 GETs)      (append-mostly)       (no network)
 ```
 
-`run.clj` does both and exits. It is the container's `CMD`.
+`run.clj` does both and exits — no loop, no daemon. It is what the scheduled
+GitHub Action runs.
 
 ## Why state exists
 
@@ -32,11 +33,12 @@ survive between runs.
 ## Quick start
 
 ```bash
-bb poll.clj      # fetch feeds, update state
-bb render.clj    # build the site from state (offline)
-bb run.clj       # both, the container entrypoint
+mise run poll
+mise run render
+mise run serve
 
-python3 -m http.server -d public 8000   # look at it
+# or just
+mise run
 ```
 
 Nothing to install beyond [babashka](https://babashka.org/) — `bb.edn` declares
@@ -56,20 +58,38 @@ no dependencies, so there is no maven fetch and no JVM required.
 | `REQUEST_DELAY_MS` | `1200` | Pause between feeds. |
 | `MAX_RETRIES` | `3` | Backoff attempts on 429/5xx before giving up on a feed. |
 
-## Docker
+## Deployment: GitHub Pages
 
-```bash
-docker build -t fgc-tv .
-docker run --rm -v "$PWD/state:/state" -v "$PWD/public:/public" \
-  -e SITE_URL=https://your.domain fgc-tv
-```
+`.github/workflows/pages.yml` does the whole thing on a schedule — no server, no
+container, no secrets:
 
-The base image `babashka/babashka:1.12.218-alpine` publishes **amd64 only**, so
-on Apple Silicon it runs under emulation locally. Fine in a cloud runner.
+1. installs the pinned babashka,
+2. runs `bb run.clj` (poll → render),
+3. **commits `state/videos.jsonl` back to the repo**,
+4. uploads `public/` and deploys it to Pages.
 
-Both volumes matter: `/state` in and out, `/public` out. How you move them —
-mounted volume, `gsutil cp` either side, committed back to git — is up to you;
-nothing here assumes a particular answer.
+The state file lives in git. That is the entire persistence layer, and it is the
+reason this can run on ephemeral runners at all — see *Why state exists* above.
+It also means the site's history is diffable and hand-editable.
+
+One-time setup: **Settings → Pages → Source → GitHub Actions**. Nothing else.
+Then trigger the first run from the Actions tab.
+
+### Notes
+
+- `SITE_URL` comes from `actions/configure-pages`, so a project site's
+  `/repo-name` prefix is handled without hardcoding anything. All in-site links
+  are relative, so it works at a subpath and at a custom domain unchanged.
+- Commits pushed with `GITHUB_TOKEN` do not trigger workflows, so the state
+  commit cannot loop back into another build.
+- `concurrency` serialises runs — two builds racing on the state commit would
+  lose a poll.
+- GitHub disables scheduled workflows after 60 days of repository inactivity.
+  The state commits count as activity, so in practice this only bites if every
+  run is a no-op for two months.
+- `robots.txt` is only honoured at a domain root. On a project Pages site it
+  lands at `/repo-name/robots.txt` and crawlers ignore it — `_debug.html` still
+  carries `noindex`, which is the part that actually matters.
 
 ## Exit codes
 
@@ -78,8 +98,8 @@ nothing here assumes a particular answer.
 | `0` | Success, **including partial feed failures**. One dead channel logs a warning and does not fail the run. |
 | `1` | Total failure: every feed failed, a required file is missing, state is unreadable, or the render threw. |
 
-State writes are atomic (temp file + rename), so a container killed mid-write
-leaves the previous store intact.
+State writes are atomic (temp file + rename), so a run killed mid-write leaves
+the previous store intact.
 
 ## Tuning the classifier
 
@@ -103,8 +123,8 @@ from `patterns.edn` to get a strict World Warrior + SFL site.
 
 ## Regenerating channel IDs
 
-`resolve_channels.clj` is a **local one-shot** whose output is committed. It is
-not in the container image and must never run hourly.
+`resolve_channels.clj` is a **local one-shot** whose output is committed. It is not
+part of the scheduled build and must never run on a schedule.
 
 ```bash
 bb resolve_channels.clj
@@ -159,7 +179,7 @@ instants and are rendered in UTC, since the audience is global.
 
 | File | Role |
 |---|---|
-| `run.clj` | Container entrypoint: poll then render |
+| `run.clj` | Entrypoint: poll then render |
 | `poll.clj` | Fetch feeds, update state. `--prune-before <date>` for manual cleanup |
 | `render.clj` | Build the site from state, offline |
 | `resolve_channels.clj` | Local one-shot, writes committed `channels.edn` |
@@ -167,6 +187,8 @@ instants and are rendered in UTC, since the audience is global.
 | `channels.edn` | Resolved channel IDs, committed artifact |
 | `ww2026.edn` | Parsed Capcom schedule (input, hand-maintained) |
 | `src/fgc/` | Library code: state, feed, classify, render, html |
+| `serve.clj` | Local preview server (bundled http-kit, no deps) |
+| `.github/workflows/pages.yml` | Scheduled build, state commit, Pages deploy |
 
 ## Output
 
@@ -176,3 +198,4 @@ instants and are rendered in UTC, since the audience is global.
 | `feed.xml` | Atom feed of newly-seen broadcasts, ordered by discovery |
 | `_debug.html` | Everything the filter rejected (`noindex`) |
 | `robots.txt` | Allows all, disallows `_debug.html` |
+| `.nojekyll` | Stops Pages from swallowing `_debug.html` for its leading underscore |

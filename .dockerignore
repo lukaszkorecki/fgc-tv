@@ -1,8 +1,0 @@
-.git
-.gitignore
-public/
-state/
-README.md
-prompt.md
-resolve_channels.clj
-.cpcache

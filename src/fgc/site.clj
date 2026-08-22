@@ -87,5 +87,8 @@
     (write-file! output-dir "feed.xml"
                  (render/atom-feed (assoc model :videos (:feed-videos model))))
     (write-file! output-dir "robots.txt" render/robots-txt)
+    ;; `_debug.html` starts with an underscore, which Jekyll-based hosting
+    ;; (GitHub Pages) drops. Cheaper to opt out than to rename the file.
+    (write-file! output-dir ".nojekyll" "")
     (println (str "render: counts " (pr-str (:counts model))))
     {:ok true :shown (:shown-count model)}))

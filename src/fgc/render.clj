@@ -264,7 +264,7 @@ th{font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--fa
     ". Round dates are shown exactly as Capcom publishes them — month/day, with no "
     "year and no timezone — because inventing precision would be worse. Video "
     "timestamps are UTC."]
-   [:p [:a {:href "/feed.xml"} "Atom feed"]]])
+   [:p [:a {:href "feed.xml"} "Atom feed"]]])
 
 (defn index-page
   [{:keys [site-url generated regions upcoming latest premier stats]}]
@@ -358,7 +358,7 @@ th{font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;color:var(--fa
                  [:td (utc-date published)]
                  [:td (or channel-name "?")]
                  [:td [:a {:href url :rel "noopener"} title]]])]]]
-           [:p.note [:a {:href "/"} "← back to the site"]]]]])))
+           [:p.note [:a {:href "./"} "← back to the site"]]]]])))
 
 ;; ----------------------------------------------------------------- atom feed
 

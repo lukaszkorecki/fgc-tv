@@ -1,9 +1,9 @@
-# Generated each run.
+# Generated each run, and rebuilt from state on every deploy.
 public/
 
-# NOT ignored: state/videos.jsonl. Committing it back is one of the valid ways
-# to persist history between container runs — if you persist it some other way
-# (volume, object storage), ignore it locally instead.
+# NOT ignored: state/videos.jsonl. It is committed on purpose — the scheduled
+# GitHub Action commits it back after each poll, and that is the only thing
+# keeping history alive once videos roll off YouTube's 15-item feed window.
 
 .cpcache/
 .DS_Store
