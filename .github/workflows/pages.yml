@@ -29,10 +29,11 @@ concurrency:
 
 env:
   BB_VERSION: "1.12.218"
-  # sha256 of babashka-<version>-linux-amd64.tar.gz, matching the .sha256 the
-  # babashka release publishes. A release asset can be replaced after the fact;
-  # this is what makes the download tamper-evident rather than merely pinned.
-  BB_SHA256: "6edf99d23c4245774c2c62b25af826d60ed661028906f918f15eceb0deffcfdc"
+  # sha256 of babashka-<version>-linux-amd64-static.tar.gz (the asset the
+  # installer picks on Linux), matching the .sha256 the release publishes. A
+  # release asset can be replaced after the fact; this is what makes the
+  # download tamper-evident rather than merely version-pinned.
+  BB_SHA256: "7bd028cc794732ffde3da31ce4379840893c8e54f1046f92a8dfc4f4b3cddaf8"
 
 jobs:
   build:
