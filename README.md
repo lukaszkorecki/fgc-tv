@@ -72,8 +72,8 @@ The state file lives in git. That is the entire persistence layer, and it is the
 reason this can run on ephemeral runners at all — see *Why state exists* above.
 It also means the site's history is diffable and hand-editable.
 
-One-time setup: **Settings → Pages → Source → GitHub Actions**. Nothing else.
-Then trigger the first run from the Actions tab.
+No setup required: `configure-pages` runs with `enablement: true`, so the first
+build turns Pages on via the API itself.
 
 ### Notes
 

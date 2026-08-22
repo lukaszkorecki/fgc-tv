@@ -46,6 +46,10 @@ jobs:
       # project site), which the feed and the OpenGraph tags need absolute.
       - uses: actions/configure-pages@v5
         id: pages
+        with:
+          # Turns Pages on via the API if it is not already, so a fresh clone of
+          # this repo needs no click-through in Settings.
+          enablement: true
 
       - name: Poll feeds and render
         env:
