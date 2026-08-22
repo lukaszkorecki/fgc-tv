@@ -1,0 +1,18 @@
+[tools]
+babashka = "latest"
+
+
+[tasks.poll]
+description = "Get latest feed data"
+run = "bb poll.clj"
+outputs = ["state/videos.jsonl"]
+
+[tasks.render]
+depends = ["poll"]
+description = "Render static page"
+run = "bb render.clj"
+
+[tasks.serve]
+depends = ["render"]
+description = "Preview locally"
+run = "bb serve.clj"
