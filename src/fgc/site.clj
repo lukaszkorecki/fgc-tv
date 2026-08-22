@@ -40,12 +40,17 @@
                        rows)
         shown (filter classify/broadcast? annotated)
         rejected (remove classify/broadcast? annotated)
-        by-region (group-by :region shown)]
+        by-region (group-by :region shown)
+        upcoming (filter :upcoming shown)]
     {:site-url site-url
      :generated now
      :shown-count (count shown)
+     :stats {:broadcasts (count shown)
+             :regions-total (count schedule)
+             :regions-live (count (filter #(seq (get by-region (:region %))) schedule))
+             :upcoming (count upcoming)}
      :latest (take latest-limit (newest-first (remove :upcoming shown)))
-     :upcoming (newest-first (filter :upcoming shown))
+     :upcoming (newest-first upcoming)
      ;; Premier stops are global events, so they have no World Warrior region
      ;; and get their own section rather than being filed under one.
      :premier (take premier-limit

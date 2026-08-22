@@ -11,9 +11,17 @@
   (:require
    [clojure.string :as str]))
 
-(defrecord Raw [s])
+;; deftype, not defrecord, on purpose: a record satisfies `map?`, so
+;; [:style (raw css)] would be mistaken for an attribute map and emitted as
+;; <style s="...">. deftype makes that structurally impossible.
+(deftype Raw [s])
 
-(defn raw [s] (->Raw (str s)))
+(defn raw
+  "Marks a string as already-safe, to be emitted without escaping."
+  [s]
+  (->Raw (str s)))
+
+(defn raw? [x] (instance? Raw x))
 
 (def ^:private void-tags
   #{:area :base :br :col :embed :hr :img :input :link :meta :source :track :wbr})
@@ -67,12 +75,13 @@
   [mode form]
   (cond
     (nil? form) ""
-    (instance? Raw form) (:s form)
+    (raw? form) (.-s ^Raw form)
     (string? form) (escape form)
     (keyword? form) (escape (name form))
     (vector? form)
     (let [[tag & more] form
-          has-attrs (map? (first more))
+          ;; `raw?` guard: a Raw is not an attribute map even if it looks mappy.
+          has-attrs (and (map? (first more)) (not (raw? (first more))))
           children (if has-attrs (next more) more)
           [tag-name id classes] (parse-tag tag)
           attrs (merge-attrs (when has-attrs (first more)) id classes)
