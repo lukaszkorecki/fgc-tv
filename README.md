@@ -1,5 +1,7 @@
 # fgc-tv
 
+# https://lukaszkorecki.github.io/fgc-tv/
+
 A static site aggregating every **Capcom Pro Tour 2026 World Warrior** and
 **Street Fighter League** broadcast across all 25 regions, rebuilt every few
 hours from YouTube Atom feeds. Unofficial fan project, not affiliated with Capcom.
