@@ -12,7 +12,7 @@ on:
   schedule:
     # Every three hours. The feed window is days wide, so this has plenty of
     # margin — the point is not to miss a roll-off, not to be fast.
-    - cron: "17 */3 * * *"
+    - cron: "17 */8 * * *"
   push:
     branches: [main]
   workflow_dispatch:
