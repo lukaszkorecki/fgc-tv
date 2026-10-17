@@ -9,10 +9,11 @@ name: build and publish
 # only exists because we keep committing state/videos.jsonl.
 
 on:
-  schedule:
-    # Every three hours. The feed window is days wide, so this has plenty of
-    # margin — the point is not to miss a roll-off, not to be fast.
-    - cron: "17 */8 * * *"
+  # XXX: disabled for now - this has been failing quite often and doesn't produce desired results
+  # schedule:
+  #   # Every three hours. The feed window is days wide, so this has plenty of
+  #   # margin — the point is not to miss a roll-off, not to be fast.
+  #   - cron: "17 */8 * * *"
   push:
     branches: [main]
   workflow_dispatch:

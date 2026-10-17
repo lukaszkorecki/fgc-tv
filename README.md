@@ -1,5 +1,9 @@
 # fgc-tv
 
+> [!WARNING]
+> This is not working anymore, polling feeds fails often enough that
+> we keep missing schedules
+
 # https://lukaszkorecki.github.io/fgc-tv/
 
 A static site aggregating every **Capcom Pro Tour 2026 World Warrior** and
